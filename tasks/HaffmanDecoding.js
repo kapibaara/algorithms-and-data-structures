@@ -8,29 +8,29 @@ process.stdin.on('data', data => {
     .toString()
     .trim()
     .split('\n')
-    .slice(1)
+    .slice(1);
 
-  let lettersMap = {}
-  let coddedStr = _data.splice(-1).toString()
-  const lettersCode = _data.map(x => x.split(' '))
+  let lettersMap = {};
+  let coddedStr = _data.splice(-1).toString();
+  const lettersCode = _data.map(x => x.split(' '));
 
   lettersCode.forEach(letterCode => {
-    let letter = letterCode[0].slice(0, 1)
-    let value = letterCode[1]
+    let letter = letterCode[0].slice(0, 1);
+    let value = letterCode[1];
 
-    lettersMap[value] = letter
-  })
+    lettersMap[value] = letter;
+  });
 
-  let decodedStr = ''
-  let letter = coddedStr[0]
+  let decodedStr = '';
+  let letter = coddedStr[0];
 
   for (let i = 1; i <= coddedStr.length; i++) {
     if (lettersMap[letter]) {
-      decodedStr += lettersMap[letter]
-      letter = ''
+      decodedStr += lettersMap[letter];
+      letter = '';
     }
-    letter += coddedStr[i]
+    letter += coddedStr[i];
   }
 
-  console.log(decodedStr)
-})
+  console.log(decodedStr);
+});

@@ -2,21 +2,21 @@
 //
 // Как мы помним, числа Фибоначчи растут очень быстро, поэтому при их вычислении нужно быть аккуратным с переполнением. В данной задаче, впрочем, этой проблемы можно избежать, поскольку нас интересует только последняя цифра числа Фибоначчи: если 0≤a,b≤9 — последние цифры чисел Fi и Fi+1 соответственно, то (a+b)mod10 — последняя цифра числа Fi+2.
 
-var stdin = process.openStdin()
+var stdin = process.openStdin();
 stdin.on('data', function (data) {
-  var n = data.toString().split(' ')
+  var n = data.toString().split(' ');
 
-  const res = [0, 1, 1, 2, 3, 5, 8]
+  const res = [0, 1, 1, 2, 3, 5, 8];
 
   const lastCharFib = n => {
     if (n >= 7) {
       for (let i = 2; i <= n; i++) {
-        res[i] = (res[i - 2] + res[i - 1]) % 10
+        res[i] = (res[i - 2] + res[i - 1]) % 10;
       }
     }
 
-    return res[n]
-  }
+    return res[n];
+  };
 
-  console.log(lastCharFib(n))
-})
+  console.log(lastCharFib(n));
+});
